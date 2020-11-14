@@ -42,7 +42,7 @@ export default {
       scrolling: false, // 是否正在滚动
     }
   },
-  mounted: function () {
+  created: function () {
     // 1.操作DOM, 在前后添加Slide
     setTimeout(() => {
       this.handleDom();
@@ -89,7 +89,7 @@ export default {
         }
 
         // 2.结束移动后的回调
-        // this.$emit('transitionEnd', this.currentIndex - 1);
+        this.$emit('transitionEnd', this.currentIndex - 1);
       }, this.animDuration)
     },
 
@@ -99,9 +99,9 @@ export default {
       this.swiperStyle['-ms-transform'] = `translate3d(${position}px), 0, 0`;
     },
 
-    handleDom() {
+    handleDom: function(){
       let swiperEl = document.querySelector('.swiper')
-      let slidesEls = swiperEl.querySelectorAll('.slide')
+      let slidesEls = swiperEl.getElementsByClassName('slide')
 
       this.slideCount = slidesEls.length;
 
@@ -110,10 +110,14 @@ export default {
         let cloneLast = slidesEls[this.slideCount - 1].cloneNode(true);
         swiperEl.insertBefore(cloneLast, slidesEls[0]);
         swiperEl.appendChild(cloneFirst);
-        this.totalWidth = swiperEl.offsetWidth;
+        this.totalWidth = swiperEl.clientWidth;
         this.swiperStyle = swiperEl.style;
+
+        console.log(swiperEl.offsetWidth);
       }
+
       this.setTransform(-this.totalWidth);
+      
     },
     touchStart(e) {
       // 1.如果正在滚动, 不可以拖动
@@ -204,7 +208,7 @@ export default {
   width: 8px;
   height: 8px;
   border-radius: 4px;
-  background-color: #fff;
+  background-color: #000;
 
   margin: 0 5px;
 }
