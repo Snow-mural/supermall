@@ -30,12 +30,14 @@
     text-align: center;
     padding: 10px 0 20px;
     border-bottom: 8px solid #eee;
+    font-size: 14px;
   }
   .recommend-item {
     flex: 1;
+    margin: 0 5px;
   }
   .recommend-item img {
-    width: 65px;
-    height: 65px;
+    width: 100%;
+    margin-bottom: 5px;
   }
 </style>

@@ -208,8 +208,7 @@ export default {
   width: 8px;
   height: 8px;
   border-radius: 4px;
-  background-color: #000;
-
+  background-color: #fff;
   margin: 0 5px;
 }
 
