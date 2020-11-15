@@ -6,6 +6,110 @@
     <home-swiper :banners="banners"/>
     <recommend-views :recommends ="recommends"/>
     <feature-views/>
+    <tab-control class="tab-control" :titles="['流行','新款','精选']"/>
+
+    <ul>
+      <li>11</li>
+      <li>11</li>
+      <li>11</li>
+      <li>11</li>
+      <li>11</li>
+      <li>11</li>
+      <li>11</li>
+      <li>11</li>
+      <li>11</li>
+      <li>11</li>
+      <li>11</li>
+      <li>11</li>
+      <li>11</li>
+      <li>11</li>
+      <li>11</li>
+      <li>11</li>
+      <li>11</li>
+      <li>11</li>
+      <li>11</li>
+      <li>11</li>
+      <li>11</li>
+      <li>11</li>
+      <li>11</li>
+      <li>11</li>
+      <li>11</li>
+      <li>11</li>
+      <li>11</li>
+      <li>11</li>
+      <li>11</li>
+      <li>11</li>
+      <li>11</li>
+      <li>11</li>
+      <li>11</li>
+      <li>11</li>
+      <li>11</li>
+      <li>11</li>
+      <li>11</li>
+      <li>11</li>
+      <li>11</li>
+      <li>11</li>
+      <li>11</li>
+      <li>11</li>
+      <li>11</li>
+      <li>11</li>
+      <li>11</li>
+      <li>11</li>
+      <li>11</li>
+      <li>11</li>
+      <li>11</li>
+      <li>11</li>
+      <li>11</li>
+      <li>11</li>
+      <li>11</li>
+      <li>11</li>
+      <li>11</li>
+      <li>11</li>
+      <li>11</li>
+      <li>11</li>
+      <li>11</li>
+      <li>11</li>
+      <li>11</li>
+      <li>11</li>
+      <li>11</li>
+      <li>11</li>
+      <li>11</li>
+      <li>11</li>
+      <li>11</li>
+      <li>11</li>
+      <li>11</li>
+      <li>11</li>
+      <li>11</li>
+      <li>11</li>
+      <li>11</li>
+      <li>11</li>
+      <li>11</li>
+      <li>11</li>
+      <li>11</li>
+      <li>11</li>
+      <li>11</li>
+      <li>11</li>
+      <li>11</li>
+      <li>11</li>
+      <li>11</li>
+      <li>11</li>
+      <li>11</li>
+      <li>11</li>
+      <li>11</li>
+      <li>11</li>
+      <li>11</li>
+      <li>11</li>
+      <li>11</li>
+      <li>11</li>
+      <li>11</li>
+      <li>11</li>
+      <li>11</li>
+      <li>11</li>
+      <li>11</li>
+      <li>11</li>
+      <li>11</li>
+      <li>11</li>
+    </ul>
   </div>
 </template>
 
@@ -14,6 +118,7 @@
   import HomeSwiper from 'views/home/childComps/HomeSwiper'
   import RecommendViews from './childComps/RecommendViews'
   import FeatureViews from './childComps/FeatureViews'
+  import TabControl from 'components/content/tabControl/TabControl'
 
   import {getHomeMultidata} from 'network/home.js'
 
@@ -23,12 +128,18 @@
       NavBar,
       HomeSwiper,
       RecommendViews,
-      FeatureViews
+      FeatureViews,
+      TabControl
     },
     data() {
       return {
         banners: [],
-        recommends: []
+        recommends: [],
+        goods: {
+          'pop': {page: 0, list: []},
+          'news': {page: 0, list: []},
+          'sell' : {page: 0, list: []}
+        }
       }
     },
     created() {
@@ -53,5 +164,11 @@
     background-color: var(--color-tint);
     color: #ffffff;
     z-index: 1;
+  }
+
+  .tab-control {
+    position: sticky;
+    top: 44px;
+    background-color: #fff;
   }
 </style>
